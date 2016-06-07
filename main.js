@@ -14,19 +14,29 @@ document.querySelector("#double button").addEventListener('click',function(){
   pNode.textContent = parseInt(value) * 2
 })
 
-// window.divNode = document.querySelector('#circle-bw')
 document.querySelector("#color-circle button").addEventListener('click',function(){
   // TASK #3
-    var shapeDiv = document.querySelector('#circle-bw')
-    if(shapeDiv.style.backgroundColor !== 'black') {
-        return shapeDiv.style.backgroundColor = 'black'
+  var shapeNode = document.querySelector('#circle-bw')
+    if(shapeNode.style.backgroundColor !== 'black') {
+        return shapeNode.style.backgroundColor = 'black'
     }else {
-        return shapeDiv.style.backgroundColor = 'white'
+        return shapeNode.style.backgroundColor = 'white'
     }
 })
 
 document.querySelector("#blow-up button").addEventListener('click',function(){
   // TASK #4}
+  var shapeNode = document.querySelector('.answer-box > .circle-red')
+  var computedStyle = window.getComputedStyle(shapeNode)
+  var intWidth = parseInt(computedStyle.width)
+  var intHeight = parseInt(computedStyle.height)
+  if(intWidth < 320 && intHeight < 320) {
+    shapeNode.style.width = (intWidth * 2) + 'px'
+    shapeNode.style.height = (intHeight * 2) + 'px'
+  } else {
+    shapeNode.style.width = '40px'
+    shapeNode.style.height = '40px'
+  }
 })
 
 document.querySelector("#remove button").addEventListener('click',function(){

@@ -55,13 +55,40 @@ document.querySelector("#remove button").addEventListener('click',function(){
 
 document.querySelector("#reverse-squares button").addEventListener('click',function(){
   // TASK #6
+  var squaresNode = document.querySelector('#reverse-squares .answer-box')
+  var allSquaresNodes = document.querySelectorAll('.answer-box span')
+
+  for(var i = allSquaresNodes.length-1; i >=0; i--) {
+    squaresNode.appendChild(allSquaresNodes[i])
+  }
 
 })
 
 document.querySelector("#pig-latin button").addEventListener('click',function(){
   // TASK #7
+  var ulNode = document.querySelector('#tasks')
+  var liNodes = document.querySelectorAll('#tasks li')
+
+  for(var i = liNodes.length - 1; i >= 0; i--) {
+    var liTextString = liNodes.textContent
+    console.log(liTextString)
+  }
+
 })
 
 document.querySelector("#cycle-image button").addEventListener('click',function(){
   // TASK #8
+  var picNode = document.querySelector('#city-img')
+  var picSourceString = picNode.getAttribute('src')
+  var picLastCharacterString = picSourceString.substr(picSourceString.length -1)
+  var picLastCharacterNumber = parseInt(picLastCharacterString)
+
+  for(var i = 1; i <= 10; i++) {
+    picLastCharacterNumber = picLastCharacterNumber%10 + 1
+    console.log(picLastCharacterNumber)
+    var newAddressString = picSourceString.substr(0, picSourceString.length-1) + picLastCharacterNumber
+    console.log(newAddressString)
+  }
+
+
 })

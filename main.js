@@ -88,5 +88,4 @@ document.querySelector("#cycle-image button").addEventListener('click',function(
 
   imgNode.setAttribute('src', partSrc + randomInt.toString())
 
-  }
 })

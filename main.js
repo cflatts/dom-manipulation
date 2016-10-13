@@ -19,7 +19,8 @@ document.querySelector("#color-circle button").addEventListener('click',function
   var shapeNode = document.querySelector('#circle-bw')
     if(shapeNode.style.backgroundColor !== 'black') {
         return shapeNode.style.backgroundColor = 'black'
-    }else {
+    }
+    else {
         return shapeNode.style.backgroundColor = 'white'
     }
 })
@@ -70,25 +71,22 @@ document.querySelector("#pig-latin button").addEventListener('click',function(){
   var liNodes = document.querySelectorAll('#tasks li')
 
   for(var i = liNodes.length - 1; i >= 0; i--) {
-    var liTextString = liNodes.textContent
-    console.log(liTextString)
+    var oneLiNode = liNodes[i]
+    ulNode.removeChild(oneLiNode)
+    ulNode.appendChild(onLiNode)
   }
 
 })
 
 document.querySelector("#cycle-image button").addEventListener('click',function(){
   // TASK #8
-  var picNode = document.querySelector('#city-img')
-  var picSourceString = picNode.getAttribute('src')
-  var picLastCharacterString = picSourceString.substr(picSourceString.length -1)
-  var picLastCharacterNumber = parseInt(picLastCharacterString)
 
-  for(var i = 1; i <= 10; i++) {
-    picLastCharacterNumber = picLastCharacterNumber%10 + 1
-    console.log(picLastCharacterNumber)
-    var newAddressString = picSourceString.substr(0, picSourceString.length-1) + picLastCharacterNumber
-    console.log(newAddressString)
+  var imgNode = document.querySelector('#city-img')
+  var src = imgNode.getAttribute('src')
+  var partSrc = src.substr(0, src.length - 1)
+  var randomInt = Math.floor(Math.random()*9)
+
+  imgNode.setAttribute('src', partSrc + randomInt.toString())
+
   }
-
-
 })

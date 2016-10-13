@@ -67,15 +67,22 @@ document.querySelector("#reverse-squares button").addEventListener('click',funct
 
 document.querySelector("#pig-latin button").addEventListener('click',function(){
   // TASK #7
-  var ulNode = document.querySelector('#tasks')
-  var liNodes = document.querySelectorAll('#tasks li')
+    var allTasks = document.querySelector("#tasks")
+    var tasks = allTasks.querySelectorAll("li")
+    console.log(tasks.length)
 
-  for(var i = liNodes.length - 1; i >= 0; i--) {
-    var oneLiNode = liNodes[i]
-    ulNode.removeChild(oneLiNode)
-    ulNode.appendChild(onLiNode)
+    var reverseIt = function(str){
+        var reversedStr =""
+      for (var i=0; i<str.length; i++){
+          reversedStr += str[(str.length-1)-i];
+      }
+      return reversedStr
   }
 
+    for(var i = 0; i < tasks.length; i++){
+        var content = tasks[i].textContent
+        tasks[i].textContent = reverseIt(content)
+    }
 })
 
 document.querySelector("#cycle-image button").addEventListener('click',function(){
